@@ -1,4 +1,16 @@
+"""_summary_
+"""
+
+
 def canUnlockAll(boxes):
+    """_summary_
+
+    Args:
+        boxes (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     keys = set()
     for i, box in enumerate(boxes):
         if box == []:
