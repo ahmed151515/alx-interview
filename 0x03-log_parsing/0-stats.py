@@ -32,7 +32,7 @@ def print_data():
         print(f"{k}: {data[k]}")
 
 
-signal.signal(signal.SIGINT, CTRL_C)
+# signal.signal(signal.SIGINT, CTRL_C)
 
 
 def parse():
@@ -62,5 +62,8 @@ def parse():
 if __name__ == "__main__":
     try:
         parse()
+    except KeyboardInterrupt:
+        print_data()
+        raise
     finally:
         pass
