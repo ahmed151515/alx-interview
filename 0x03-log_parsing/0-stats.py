@@ -25,12 +25,6 @@ def CTRL_C(signum, frame):
     i = 0
 
 
-# def print_data():
-#     """_summary_
-#     """
-#     print(f"File size: {total_size}")
-#     for k, v in sorted(data.items()):
-#         print(f"{k}: {v}")
 def print_data():
     """Print the collected data"""
     print(f"File size: {total_size}")
@@ -42,6 +36,8 @@ signal.signal(signal.SIGINT, CTRL_C)
 
 
 def parse():
+    """_summary_
+    """
     global data
     global i
     global total_size
