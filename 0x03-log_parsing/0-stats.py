@@ -32,38 +32,34 @@ def print_data():
         print(f"{k}: {data[k]}")
 
 
-# signal.signal(signal.SIGINT, CTRL_C)
+signal.signal(signal.SIGINT, CTRL_C)
 
 
-def parse():
-    """_summary_
-    """
-    global data
-    global i
-    global total_size
-    for line in stdin:
-        res = valid.match(line)
-        if res == None:
-            continue
-
-        status_code = int(res.groups()[0])
-        file_size = int(res.groups()[1])
-        total_size += file_size
-        if status_code in data:
-            data[status_code] += 1
-        else:
-            data[status_code] = 1
-        i += 1
-        if i == 10:
-            print_data()
-            i = 0
+# def parse():
+#     """_summary_
+#     """
+#     global data
+#     global i
+#     global total_size
 
 
 if __name__ == "__main__":
     try:
-        parse()
-    except KeyboardInterrupt:
-        print_data()
-        raise
+        for line in stdin:
+            res = valid.match(line)
+            if res == None:
+                continue
+
+            status_code = int(res.groups()[0])
+            file_size = int(res.groups()[1])
+            total_size += file_size
+            if status_code in data:
+                data[status_code] += 1
+            else:
+                data[status_code] = 1
+            i += 1
+            if i == 10:
+                print_data()
+                i = 0
     finally:
         pass
