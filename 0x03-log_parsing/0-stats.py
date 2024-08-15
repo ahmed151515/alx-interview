@@ -36,19 +36,27 @@ def print_data():
 signal.signal(signal.SIGINT, CTRL_C)
 
 
-for line in stdin:
-    res = valid.match(line)
-    if res == None:
-        continue
+def parse():
+    global data
+    global i
+    global total_size
+    for line in stdin:
+        res = valid.match(line)
+        if res == None:
+            continue
 
-    status_code = int(res.groups()[0])
-    file_size = int(res.groups()[1])
-    total_size += file_size
-    if status_code in data:
-        data[status_code] += 1
-    else:
-        data[status_code] = 1
-    i += 1
-    if i == 10:
-        print_data()
-        i = 0
+        status_code = int(res.groups()[0])
+        file_size = int(res.groups()[1])
+        total_size += file_size
+        if status_code in data:
+            data[status_code] += 1
+        else:
+            data[status_code] = 1
+        i += 1
+        if i == 10:
+            print_data()
+            i = 0
+
+
+if __name__ == "__main__":
+    parse()
