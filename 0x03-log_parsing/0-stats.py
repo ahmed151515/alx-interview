@@ -13,16 +13,16 @@ total_size = 0
 i = 0
 
 
-def CTRL_C(signum, frame):
-    """_summary_
+# def CTRL_C(signum, frame):
+#     """_summary_
 
-    Args:
-        signum (_type_): _description_
-        frame (_type_): _description_
-    """
-    print_data()
-    global i
-    i = 0
+#     Args:
+#         signum (_type_): _description_
+#         frame (_type_): _description_
+#     """
+#     print_data()
+#     global i
+#     i = 0
 
 
 def print_data():
@@ -32,7 +32,7 @@ def print_data():
         print(f"{k}: {data[k]}")
 
 
-signal.signal(signal.SIGINT, CTRL_C)
+# signal.signal(signal.SIGINT, CTRL_C)
 
 
 def parse():
