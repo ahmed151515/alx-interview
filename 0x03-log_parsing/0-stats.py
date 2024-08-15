@@ -62,4 +62,4 @@ if __name__ == "__main__":
                 print_data()
                 i = 0
     finally:
-        pass
+        print_data()
