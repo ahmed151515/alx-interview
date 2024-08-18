@@ -7,7 +7,8 @@ import signal
 
 
 valid = re.compile(
-    '^[\d.]{0,15} - \[.+\] "GET /projects/260 HTTP/1.1" (200|301|400|401|403|404|405|500) (\d+)')
+    '^[\d.]{0,15} - \[.+\] "GET /projects/260 HTTP/1.1"'
+     +'(200|301|400|401|403|404|405|500) (\d+)')
 data = dict()
 total_size = 0
 i = 0
@@ -47,7 +48,7 @@ if __name__ == "__main__":
     try:
         for line in stdin:
             res = valid.match(line)
-            if res == None:
+            if res is None:
                 continue
 
             status_code = int(res.groups()[0])
